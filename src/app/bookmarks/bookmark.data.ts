@@ -4,7 +4,7 @@ import { Bookmark } from './bookmark.interface';
 export class BookmarkData implements InMemoryDbService {
 
   createDb(): any {
-    const bookmarks: any = [
+    const bookmarks: Bookmark[] = [
       {
         id: 1,
         name: 'Youtube',
