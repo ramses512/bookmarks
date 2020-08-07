@@ -1,0 +1,33 @@
+<h1 mat-dialog-title>Add bookmark</h1>
+<div mat-dialog-content>
+  <form [formGroup]="bookmarkForm">
+    <mat-form-field appearance="fill">
+      <mat-label>Name</mat-label>
+      <input formControlName="name" matInput />
+    </mat-form-field>
+    <br />
+    <mat-form-field appearance="fill">
+      <mat-label>Url</mat-label>
+      <input formControlName="url" matInput />
+    </mat-form-field>
+    <br />
+    <mat-form-field appearance="fill">
+      <mat-label>Group</mat-label>
+      <input formControlName="group" matInput />
+    </mat-form-field>
+  </form>
+  <div>
+    <button mat-button mat-dialog-close>Close</button>
+    <button mat-raised-button color="primary" (click)="save()">Save</button>
+  </div>
+  <!-- <br>
+  <mat-form-field appearance="fill">
+    <mat-label>Group</mat-label>
+    <mat-select>
+      <mat-option value="leisure">Leisure</mat-option>
+      <mat-option value="option">Option</mat-option>
+      <mat-option value="option">Option</mat-option>
+    </mat-select>
+  </mat-form-field>
+  <br> -->
+</div>
