@@ -1,0 +1,24 @@
+table {
+  width: 100%;
+}
+
+.center {
+  display: flex;
+  align-items: center;
+}
+
+.app-bookmarks {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 3rem;
+}
+
+.capital-letter {
+  text-transform: capitalize;
+  cursor: pointer;
+}
+
+.upper-letter {
+  text-transform: uppercase;
+}

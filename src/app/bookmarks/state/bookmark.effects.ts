@@ -19,7 +19,6 @@ export class BookmarkEffects {
   loadBookmarks$: Observable<Action> = this.actions$.pipe(
     ofType(bookmarkActions.BookmarksActionTypes.Load),
     mergeMap((action) => {
-      console.log(action);
       return this.bookmarkService.getBookmarks().pipe(
         map((bookmarks) => new bookmarkActions.LoadSuccess(bookmarks)),
         catchError((err) => of(new bookmarkActions.LoadFail(err)))

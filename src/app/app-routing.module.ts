@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
 const routes: Routes = [ {
-  path: 'bookmarks',
+  path: '',
   loadChildren: () => import('./bookmarks/bookmarks.module').then(mod => mod.BookmarksModule)
 
 }];
