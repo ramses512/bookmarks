@@ -5,10 +5,6 @@ const getBookmarkFeatureState = createFeatureSelector<BookmarkState>(
   'bookmarks'
 );
 
-export const getBookmarks = createSelector(
-  getBookmarkFeatureState,
-  (state) => {
-    console.log(state);
-    return state.bookmarks;
-  }
-);
+export const getBookmarks = createSelector(getBookmarkFeatureState, (state) => {
+  return state.bookmarks;
+});
