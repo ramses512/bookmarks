@@ -1,4 +1,9 @@
 <div class="app-bookmarks">
+  <div class="float-button">
+    <button mat-fab color="primary" (click)="openDialog()" aria-label="Example icon button with a bookmark icon">
+      <mat-icon>add</mat-icon>
+    </button>
+  </div>
   <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
     <ng-container *ngFor="let col of displayedColumns" [matColumnDef]="col">
       <th mat-header-cell *matHeaderCellDef class="upper-letter">{{ col }}</th>
@@ -6,9 +11,13 @@
       <ng-container *matCellDef="let row">
         <td mat-cell *ngIf="col === 'url'"><a [href]="row[col]" target="_blank"
             rel="noopener noreferrer">{{row[col]}}</a></td>
-        <td mat-cell *ngIf="col !== 'url'">{{row[col]}}</td>
+        <td mat-cell *ngIf="col === 'name'">{{row[col]}}</td>
+        <td mat-cell *ngIf="col === 'actions'">
+          <mat-icon class="remove" color="danger" (click)="remove(row)">highlight_off</mat-icon>
+        </td>
       </ng-container>
     </ng-container>
+
 
     <tr mat-header-row *matHeaderRowDef="displayedColumns; sticky: true"></tr>
     <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
@@ -17,7 +26,6 @@
       <td colspan="999" mat-cell *matCellDef="let group">
         <div class="center">
           <strong class="capital-letter">{{group.groupName}}</strong>
-
           <mat-icon *ngIf="!group.reduced">expand_less</mat-icon>
           <mat-icon *ngIf="group.reduced">expand_more</mat-icon>
         </div>

@@ -4,6 +4,9 @@ import { Store, select } from '@ngrx/store';
 import * as bookmarkActions from './state/bookmark.action';
 import { getBookmarks } from './state/bookmark.selectors';
 import { Bookmark } from './bookmark.interface';
+import { MatDialog } from '@angular/material/dialog';
+import { AddDialogComponent } from './add-dialog/add-dialog.component';
+
 @Component({
   selector: 'app-bookmarks',
   templateUrl: './bookmarks.component.html',
@@ -16,16 +19,29 @@ export class BookmarksComponent implements OnInit {
   reducedGroups = [];
   initialData: any[];
 
-  constructor(private store: Store) {}
+  constructor(private store: Store, public dialog: MatDialog) {}
 
   ngOnInit(): void {
     this.store.dispatch(new bookmarkActions.Load());
     this.bookmarks$ = this.store.pipe(select(getBookmarks));
     this.bookmarks$.subscribe((data) => {
       this.initialData = data;
-      this.displayedColumns = ['name', 'url'];
+      this.displayedColumns = ['name', 'url', 'actions'];
       this.buildDataSource();
     });
+  }
+  openDialog(): void {
+    this.dialog
+      .open(AddDialogComponent)
+      .afterClosed()
+      .subscribe((data) => {
+        if (data) {
+          this.store.dispatch(new bookmarkActions.Create(data));
+        }
+      });
+  }
+  remove(data: Bookmark): void {
+    this.store.dispatch(new bookmarkActions.Delete(data.id));
   }
 
   /**

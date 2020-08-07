@@ -22,3 +22,15 @@ table {
 .upper-letter {
   text-transform: uppercase;
 }
+
+.remove {
+  color: red;
+  cursor: pointer;
+}
+
+.float-button {
+  position: fixed;
+  bottom: 40%;
+  right: 105px;
+  display: table;
+}
