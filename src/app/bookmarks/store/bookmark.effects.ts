@@ -5,9 +5,8 @@ import { Observable, of } from 'rxjs';
 import { catchError, map, mergeMap, switchMap } from 'rxjs/operators';
 import { Bookmark } from '../bookmark.interface';
 import { BookmarkService } from '../bookmark.service';
+import { SnackbarOpen } from '../snackbar/store/snackbar.action';
 import * as bookmarkActions from './bookmark.action';
-
-
 
 @Injectable()
 export class BookmarkEffects {
@@ -31,7 +30,13 @@ export class BookmarkEffects {
     ofType(bookmarkActions.BookmarksActionTypes.Create),
     map((action: bookmarkActions.Create) => action.payload),
     switchMap((newBookmark) => this.bookmarkService.addBookmark(newBookmark)),
-    map((response: Bookmark) => new bookmarkActions.CreateSuccess(response.id)),
+    mergeMap((response: Bookmark) => [
+      new bookmarkActions.CreateSuccess(response.id),
+      new SnackbarOpen({
+        message: 'Bookmark Created',
+        action: 'Success',
+      }),
+    ]),
     catchError((err) => [new bookmarkActions.CreateFail(err)])
   );
 
@@ -40,7 +45,13 @@ export class BookmarkEffects {
     ofType(bookmarkActions.BookmarksActionTypes.Delete),
     map((action: bookmarkActions.Delete) => action.payload),
     switchMap((id) => this.bookmarkService.removeBookmark(id)),
-    map((bookmark: Bookmark) => new bookmarkActions.DeleteSuccess(bookmark)),
+    mergeMap((bookmark: Bookmark) => [
+      new bookmarkActions.DeleteSuccess(bookmark),
+      new SnackbarOpen({
+        message: 'Bookmark Deleted',
+        action: 'Success',
+      }),
+    ]),
     catchError((err) => [new bookmarkActions.DeleteFail(err)])
   );
 }

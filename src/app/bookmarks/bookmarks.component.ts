@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { select, Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
@@ -6,6 +6,9 @@ import { AddDialogComponent } from './add-dialog/add-dialog.component';
 import { Bookmark } from './bookmark.interface';
 import * as bookmarkActions from './store/bookmark.action';
 import { getBookmarks } from './store/bookmark.selectors';
+import { MatSort } from '@angular/material/sort';
+import { MatTableDataSource } from '@angular/material/table';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-bookmarks',
@@ -13,9 +16,10 @@ import { getBookmarks } from './store/bookmark.selectors';
   styleUrls: ['./bookmarks.component.scss'],
 })
 export class BookmarksComponent implements OnInit {
+  @ViewChild(MatSort, {static: true}) sort: MatSort;
   bookmarks$: Observable<Bookmark[]>;
   displayedColumns: string[];
-  dataSource = [];
+  dataSource: any = [];
   reducedGroups = [];
   initialData: Bookmark[];
 
@@ -48,11 +52,12 @@ export class BookmarksComponent implements OnInit {
    * Builds data source
    */
   private buildDataSource(): void {
-    this.dataSource = this.groupBy(
+    this.dataSource = new MatTableDataSource(this.groupBy(
       'group',
       this.initialData,
       this.reducedGroups
-    );
+    ));
+    this.dataSource.sort = this.sort;
   }
 
   /**
