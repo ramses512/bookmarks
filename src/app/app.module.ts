@@ -10,11 +10,14 @@ import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BookmarkData } from './bookmarks/bookmark.data';
+import { HeaderComponent } from './header/header.component';
+import { MatToolbarModule } from '@angular/material/toolbar';
 
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    HeaderComponent
   ],
   imports: [
     BrowserModule,
@@ -22,6 +25,7 @@ import { BookmarkData } from './bookmarks/bookmark.data';
     AppRoutingModule,
     BrowserAnimationsModule,
     HttpClientModule,
+    MatToolbarModule,
     HttpClientInMemoryWebApiModule.forRoot(BookmarkData),
     StoreModule.forRoot({}),
     EffectsModule.forRoot([]),
