@@ -1,9 +1,6 @@
 import {
   Component,
-  OnInit,
-  ViewChild,
-  AfterViewChecked,
-  AfterViewInit,
+  OnInit
 } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { select, Store } from '@ngrx/store';
@@ -12,9 +9,6 @@ import { AddDialogComponent } from './add-dialog/add-dialog.component';
 import { Bookmark } from './bookmark.interface';
 import * as bookmarkActions from './store/bookmark.action';
 import { getBookmarks } from './store/bookmark.selectors';
-import { MatSort } from '@angular/material/sort';
-import { MatTableDataSource } from '@angular/material/table';
-import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-bookmarks',
@@ -138,10 +132,18 @@ export class BookmarksComponent implements OnInit {
     this.buildDataSource();
   }
 
+  /**
+   * Apply Filter
+   * @param event
+   */
   applyFilter(event: Event): void {
     const filterValue = (event.target as HTMLInputElement).value;
     this.dataSource.filter = filterValue.trim().toLowerCase();
   }
+  /**
+   * Collapse and expand function
+   *
+   */
   collapseExpand(): void {
     this.dataSource
       .filter((element) => element.reduced !== undefined)
