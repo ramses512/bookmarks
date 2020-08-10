@@ -1,17 +1,24 @@
+## Demo
+
+Here you have a live Demo https://ramses512.github.io/bookmarks/
 ## Description of the solution
 
-I have created a table in which you can add markers and groups which are generated dynamically
+This project display a simple list of bookmarks that can be updated, removed, viewed and inserted a new one using http services and @ngrx/store and @ngrx/effects libraries grouping information by modules.
+
+## Get the Code
+```
+git clone https://github.com/ramses512/bookmarks
+cd bookmarks
+npm i
+npm start
+```
 
 ## Screenshots
-
-<p align="center">
-<a href="https://ibb.co/9W7kWPs"><img width="400" src="https://i.ibb.co/kXtsXZQ/main-screen.png" alt="main-screen" border="0"></a>
-</p>
-<p align="center">
-<a href="https://ibb.co/MG2NvDG"><img width="400" src="https://i.ibb.co/SdsvjXd/form.png" alt="form" border="0"></a>
-</p>
-
-## Instructions how to run the application
-
-Run `npm install`
-Run `npm start`
+<p align="center"><a href="https://ibb.co/9NZzZJc"><img width="600" src="https://i.ibb.co/CzPNPqm/add.png" alt="add" border="0"></a></p>
+<p align="center"><a href="https://ibb.co/Tm2ySQm"><img width="600" src="https://i.ibb.co/t8KRt08/collapse.png" alt="collapse" border="0"></a></p>
+<p align="center"><a href="https://ibb.co/2d3w8Dy"><img width="600" src="https://i.ibb.co/Xtx9yhb/edit.png" alt="edit" border="0"></a></p>
+<p align="center"><a href="https://ibb.co/YbmzRBJ"><img width="600" src="https://i.ibb.co/fQfh1dZ/expand.png" alt="expand" border="0"></a></p>
+<p align="center"><a href="https://ibb.co/n1twcKj"><img width="600" src="https://i.ibb.co/s1zgwXq/filter.png" alt="filter" border="0"></a></p>
+<p align="center"><a href="https://ibb.co/F4WyYPp"><img width="600" src="https://i.ibb.co/9Hv14MP/Form-validation.png" alt="Form-validation" border="0"></a></p>
+<p align="center"><a href="https://ibb.co/v4gS3RV"><img width="600" src="https://i.ibb.co/F4NF5Cm/main.png" alt="main" border="0"></a></p>
+<p align="center"><a href="https://ibb.co/DpQ7kC8"><img width="600" src="https://i.ibb.co/ws4KCWw/remove-message.png" alt="remove-message" border="0"></a></p>
