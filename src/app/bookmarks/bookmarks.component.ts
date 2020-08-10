@@ -16,7 +16,7 @@ import { MatSnackBar } from '@angular/material/snack-bar';
   styleUrls: ['./bookmarks.component.scss'],
 })
 export class BookmarksComponent implements OnInit {
-  @ViewChild(MatSort, {static: true}) sort: MatSort;
+  @ViewChild(MatSort, { static: true }) sort: MatSort;
   bookmarks$: Observable<Bookmark[]>;
   displayedColumns: string[];
   dataSource: any = [];
@@ -36,7 +36,7 @@ export class BookmarksComponent implements OnInit {
   }
   openDialog(): void {
     this.dialog
-      .open(AddDialogComponent)
+      .open(AddDialogComponent, { width: '400px' })
       .afterClosed()
       .subscribe((data) => {
         if (data) {
@@ -52,11 +52,9 @@ export class BookmarksComponent implements OnInit {
    * Builds data source
    */
   private buildDataSource(): void {
-    this.dataSource = new MatTableDataSource(this.groupBy(
-      'group',
-      this.initialData,
-      this.reducedGroups
-    ));
+    this.dataSource = new MatTableDataSource(
+      this.groupBy('group', this.initialData, this.reducedGroups)
+    );
     this.dataSource.sort = this.sort;
   }
 
