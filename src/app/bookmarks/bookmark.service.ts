@@ -4,7 +4,6 @@ import { Observable, throwError } from 'rxjs';
 import { catchError } from 'rxjs/operators';
 import { Bookmark } from './bookmark.interface';
 
-
 @Injectable({
   providedIn: 'root',
 })
@@ -31,6 +30,18 @@ export class BookmarkService {
     headers = headers.set('Content-Type', 'application/json; charset=utf-8');
     return this.http
       .post<Bookmark>(this.bookmarksUrl, data, { headers })
+      .pipe(catchError(this.handleError));
+  }
+  /**
+   * Edit bookmark
+   * @param data
+   * @returns bookmark
+   */
+  editBookmark(data: Bookmark): Observable<Bookmark> {
+    let headers = new HttpHeaders();
+    headers = headers.set('Content-Type', 'application/json; charset=utf-8');
+    return this.http
+      .put<Bookmark>(`${this.bookmarksUrl}/${data.id}`, data, { headers })
       .pipe(catchError(this.handleError));
   }
   /**

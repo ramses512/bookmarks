@@ -1,7 +1,4 @@
-import {
-  Component,
-  OnInit
-} from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { select, Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
@@ -40,6 +37,16 @@ export class BookmarksComponent implements OnInit {
       .subscribe((data) => {
         if (data) {
           this.store.dispatch(new bookmarkActions.Create(data));
+        }
+      });
+  }
+  editBookmark(row: Bookmark) {
+    this.dialog
+      .open(AddDialogComponent, { data: row, width: '400px' })
+      .afterClosed()
+      .subscribe((data) => {
+        if (data) {
+          this.store.dispatch(new bookmarkActions.Edit(data));
         }
       });
   }

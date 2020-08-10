@@ -19,6 +19,7 @@
         <td mat-cell *ngIf="col === 'name'">{{row[col]}}</td>
         <td mat-cell *ngIf="col === 'actions'">
           <mat-icon class="remove" color="danger" (click)="remove(row)">highlight_off</mat-icon>
+          <mat-icon class="edit" color="primary" (click)="editBookmark(row)">edit</mat-icon>
         </td>
       </ng-container>
     </ng-container>

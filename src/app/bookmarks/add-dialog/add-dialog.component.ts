@@ -23,7 +23,12 @@ export class AddDialogComponent implements OnInit {
     public dialogRef: MatDialogRef<AddDialogComponent>,
     private ngZone: NgZone,
     @Inject(MAT_DIALOG_DATA) public data: Bookmark
-  ) {}
+  ) {
+    if(data){
+      this.bookmarkForm.patchValue(data);
+      this.bookmarkForm.addControl('id', new FormControl(data.id, Validators.required));
+    }
+  }
 
   ngOnInit(): void {}
   public save(): void {

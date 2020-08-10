@@ -39,6 +39,20 @@ export class BookmarkEffects {
     ]),
     catchError((err) => [new bookmarkActions.CreateFail(err)])
   );
+  @Effect()
+  editBookmark$: Observable<Action> = this.actions$.pipe(
+    ofType(bookmarkActions.BookmarksActionTypes.Edit),
+    map((action: bookmarkActions.Edit) => action.payload),
+    switchMap((newBookmark) => this.bookmarkService.editBookmark(newBookmark)),
+    mergeMap((response: Bookmark) => [
+      new bookmarkActions.EditSuccess(),
+      new SnackbarOpen({
+        message: 'Bookmark Edited',
+        action: 'Success',
+      }),
+    ]),
+    catchError((err) => [new bookmarkActions.EditFail(err)])
+  );
 
   @Effect()
   removeBookmark$: Observable<Action> = this.actions$.pipe(

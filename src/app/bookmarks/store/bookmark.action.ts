@@ -8,6 +8,9 @@ export enum BookmarksActionTypes {
   Create = '[Bookmarks] Create',
   CreateSuccess = '[Bookmarks] Create Success',
   CreateFail = '[Bookmarks] Create Fail',
+  Edit = '[Bookmarks] Edit',
+  EditSuccess = '[Bookmarks] Edit Success',
+  EditFail = '[Bookmarks] Edit Fail',
   Delete = '[Bookmarks] Delete',
   DeleteSuccess = '[Bookmarks] Delete Success',
   DeleteFail = '[Bookmarks] Delete Fail',
@@ -44,6 +47,20 @@ export class CreateFail implements Action {
 
   constructor(public payload: string) {}
 }
+export class Edit implements Action {
+  readonly type = BookmarksActionTypes.Edit;
+  constructor(public payload: Bookmark) {}
+}
+
+export class EditSuccess implements Action {
+  readonly type = BookmarksActionTypes.EditSuccess;
+}
+
+export class EditFail implements Action {
+  readonly type = BookmarksActionTypes.EditFail;
+
+  constructor(public payload: string) {}
+}
 export class Delete implements Action {
   readonly type = BookmarksActionTypes.Delete;
   constructor(public payload: number) {}
@@ -68,6 +85,9 @@ export type BookmarksActions =
   | Create
   | CreateSuccess
   | CreateFail
+  | Edit
+  | EditSuccess
+  | EditFail
   | Delete
   | DeleteSuccess
   | DeleteFail;
