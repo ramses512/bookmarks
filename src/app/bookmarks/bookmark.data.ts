@@ -1,5 +1,5 @@
 import { InMemoryDbService } from 'angular-in-memory-web-api';
-import { Bookmark } from './bookmark.interface';
+import { Bookmark, Group } from './bookmark.interface';
 
 export class BookmarkData implements InMemoryDbService {
   createDb(): any {
@@ -8,25 +8,25 @@ export class BookmarkData implements InMemoryDbService {
         id: 1,
         name: 'Youtube',
         url: 'https://www.youtube.com/',
-        group: 'leisure',
+        group: Group.LEISURE,
       },
       {
         id: 2,
         name: 'Angular',
         url: 'https://angular.io/',
-        group: 'work',
+        group: Group.WORK,
       },
       {
         id: 3,
         name: 'Github',
         url: 'https://github.com/ramses512',
-        group: 'personal',
+        group: Group.PERSONAL,
       },
       {
         id: 4,
         name: 'Twitter',
         url: 'https://twitter.com/',
-        group: 'leisure',
+        group: Group.LEISURE,
       },
     ];
     return { bookmarks };
