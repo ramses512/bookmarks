@@ -70,7 +70,6 @@ export function reducer(
       };
     }
     case BookmarksActionTypes.DeleteSuccess:
-      console.log(state);
       return {
         ...state,
         bookmarks: state.bookmarks.filter((h) => h.id !== state.selected.id),
@@ -80,7 +79,6 @@ export function reducer(
       };
 
     case BookmarksActionTypes.DeleteFail:
-      console.log(state);
       return {
         ...state,
         selected: null,

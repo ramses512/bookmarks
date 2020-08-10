@@ -23,7 +23,6 @@ export class AddDialogComponent implements OnInit {
   ngOnInit(): void {}
   public save(): void {
     if (this.bookmarkForm.valid) {
-      console.log(this.bookmarkForm.value);
       this.ngZone.run(() => {
         this.dialogRef.close(this.bookmarkForm.value);
       });
