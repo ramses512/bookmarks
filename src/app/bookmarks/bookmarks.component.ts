@@ -6,6 +6,7 @@ import { AddDialogComponent } from './add-dialog/add-dialog.component';
 import { Bookmark } from './bookmark.interface';
 import * as bookmarkActions from './store/bookmark.action';
 import { getBookmarks } from './store/bookmark.selectors';
+import { MatTableDataSource } from '@angular/material/table';
 
 @Component({
   selector: 'app-bookmarks',
@@ -58,11 +59,11 @@ export class BookmarksComponent implements OnInit {
    * Builds data source
    */
   private buildDataSource(): void {
-    this.dataSource = this.groupBy(
+    this.dataSource = new MatTableDataSource(this.groupBy(
       'group',
       this.initialData,
       this.reducedGroups
-    );
+    ));
   }
 
   /**
@@ -152,7 +153,7 @@ export class BookmarksComponent implements OnInit {
    *
    */
   collapseExpand(): void {
-    this.dataSource
+    this.dataSource.data
       .filter((element) => element.reduced !== undefined)
       .forEach((element) => {
         this.reduceGroup(element);
