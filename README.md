@@ -14,7 +14,7 @@ npm start
 ```
 
 ## Screenshots
-<p align="center">Main App <a href="https://ibb.co/v4gS3RV"> <img width="600" src="https://i.ibb.co/F4NF5Cm/main.png" alt="main" border="0"></a></p>
+<p align="center"><a href="https://ibb.co/v4gS3RV"><img width="600" src="https://i.ibb.co/F4NF5Cm/main.png" alt="main" border="0"></a></p>
 <p align="center">When you click "Collapse/Expand All" button you can collapse all groups<a href="https://ibb.co/Tm2ySQm"> <img width="600" src="https://i.ibb.co/t8KRt08/collapse.png" alt="collapse" border="0"></a></p>
 <p align="center">When you click "Collapse/Expand All" button you can expand all groups<a href="https://ibb.co/YbmzRBJ"> <img width="600" src="https://i.ibb.co/fQfh1dZ/expand.png" alt="expand" border="0"></a></p>
 <p align="center">When you click on filter input you can filter bookmarks<a href="https://ibb.co/n1twcKj"><img width="600" src="https://i.ibb.co/s1zgwXq/filter.png" alt="filter" border="0"></a></p>
