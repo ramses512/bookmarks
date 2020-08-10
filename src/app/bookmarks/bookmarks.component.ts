@@ -17,7 +17,7 @@ export class BookmarksComponent implements OnInit {
   displayedColumns: string[];
   dataSource = [];
   reducedGroups = [];
-  initialData: any[];
+  initialData: Bookmark[];
 
   constructor(private store: Store, public dialog: MatDialog) {}
 

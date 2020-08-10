@@ -31,7 +31,7 @@ export class BookmarkEffects {
     ofType(bookmarkActions.BookmarksActionTypes.Create),
     map((action: bookmarkActions.Create) => action.payload),
     switchMap((newBookmark) => this.bookmarkService.addBookmark(newBookmark)),
-    map((response: any) => new bookmarkActions.CreateSuccess(response.id)),
+    map((response: Bookmark) => new bookmarkActions.CreateSuccess(response.id)),
     catchError((err) => [new bookmarkActions.CreateFail(err)])
   );
 
