@@ -1,4 +1,10 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import {
+  Component,
+  OnInit,
+  ViewChild,
+  AfterViewChecked,
+  AfterViewInit,
+} from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { select, Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
@@ -16,7 +22,6 @@ import { MatSnackBar } from '@angular/material/snack-bar';
   styleUrls: ['./bookmarks.component.scss'],
 })
 export class BookmarksComponent implements OnInit {
-  @ViewChild(MatSort, { static: true }) sort: MatSort;
   bookmarks$: Observable<Bookmark[]>;
   displayedColumns: string[];
   dataSource: any = [];
@@ -52,10 +57,11 @@ export class BookmarksComponent implements OnInit {
    * Builds data source
    */
   private buildDataSource(): void {
-    this.dataSource = new MatTableDataSource(
-      this.groupBy('group', this.initialData, this.reducedGroups)
+    this.dataSource = this.groupBy(
+      'group',
+      this.initialData,
+      this.reducedGroups
     );
-    this.dataSource.sort = this.sort;
   }
 
   /**
@@ -135,5 +141,12 @@ export class BookmarksComponent implements OnInit {
   applyFilter(event: Event): void {
     const filterValue = (event.target as HTMLInputElement).value;
     this.dataSource.filter = filterValue.trim().toLowerCase();
+  }
+  collapseExpand(): void {
+    this.dataSource
+      .filter((element) => element.reduced !== undefined)
+      .forEach((element) => {
+        this.reduceGroup(element);
+      });
   }
 }

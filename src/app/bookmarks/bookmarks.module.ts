@@ -8,6 +8,7 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatInputModule } from '@angular/material/input';
 import { MatSelectModule } from '@angular/material/select';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
+import { MatSortModule } from '@angular/material/sort';
 import { MatTableModule } from '@angular/material/table';
 import { RouterModule } from '@angular/router';
 import { EffectsModule } from '@ngrx/effects';
@@ -30,6 +31,7 @@ import { reducer } from './store/bookmark.reducer';
     MatFormFieldModule,
     MatInputModule,
     MatSelectModule,
+    MatSortModule,
     MatSnackBarModule,
     ReactiveFormsModule,
     FormsModule,
