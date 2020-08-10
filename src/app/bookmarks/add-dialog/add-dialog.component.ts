@@ -11,7 +11,12 @@ import { Bookmark } from '../bookmark.interface';
 export class AddDialogComponent implements OnInit {
   bookmarkForm = new FormGroup({
     name: new FormControl('', Validators.required),
-    url: new FormControl('', Validators.required),
+    url: new FormControl('', [
+      Validators.required,
+      Validators.pattern(
+        '(https?://)?([\\da-z.-]+)\\.([a-z.]{2,6})[/\\w .-]*/?'
+      ),
+    ]),
     group: new FormControl('', Validators.required),
   });
   constructor(

@@ -4,16 +4,29 @@
     <mat-form-field appearance="fill">
       <mat-label>Name</mat-label>
       <input formControlName="name" matInput />
+      <mat-error *ngIf="bookmarkForm.controls.name.hasError('required')">
+        Name is required
+      </mat-error>
     </mat-form-field>
     <br />
     <mat-form-field appearance="fill">
       <mat-label>Url</mat-label>
       <input formControlName="url" matInput />
+      <mat-error *ngIf="bookmarkForm.controls.url.hasError('required')">
+        Url is required
+      </mat-error>
+      <mat-error
+        *ngIf="!bookmarkForm.controls.url.hasError('required') && bookmarkForm.controls.url.hasError('pattern')">
+        This is not a valid Url
+      </mat-error>
     </mat-form-field>
     <br />
     <mat-form-field appearance="fill">
       <mat-label>Group</mat-label>
       <input formControlName="group" matInput />
+      <mat-error *ngIf="bookmarkForm.controls.group.hasError('required')">
+        Group is required
+      </mat-error>
     </mat-form-field>
   </form>
   <div>
