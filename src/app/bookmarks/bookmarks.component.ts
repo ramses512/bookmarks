@@ -131,4 +131,9 @@ export class BookmarksComponent implements OnInit {
 
     this.buildDataSource();
   }
+
+  applyFilter(event: Event): void {
+    const filterValue = (event.target as HTMLInputElement).value;
+    this.dataSource.filter = filterValue.trim().toLowerCase();
+  }
 }
