@@ -1,9 +1,9 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { StoreModule } from '@ngrx/store';
-import { reducer } from './state/bookmark.reducer';
+import { reducer } from './store/bookmark.reducer';
 import { EffectsModule } from '@ngrx/effects';
-import { BookmarkEffects } from './state/bookmark.effects';
+import { BookmarkEffects } from './store/bookmark.effects';
 import { BookmarksComponent } from './bookmarks.component';
 import { AddDialogComponent } from './add-dialog/add-dialog.component';
 import { RouterModule } from '@angular/router';

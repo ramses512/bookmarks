@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Store, select } from '@ngrx/store';
-import * as bookmarkActions from './state/bookmark.action';
-import { getBookmarks } from './state/bookmark.selectors';
+import * as bookmarkActions from './store/bookmark.action';
+import { getBookmarks } from './store/bookmark.selectors';
 import { Bookmark } from './bookmark.interface';
 import { MatDialog } from '@angular/material/dialog';
 import { AddDialogComponent } from './add-dialog/add-dialog.component';
