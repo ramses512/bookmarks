@@ -1,13 +1,13 @@
 import { Injectable } from '@angular/core';
-
-import { Observable, of } from 'rxjs';
-import { mergeMap, map, catchError, switchMap } from 'rxjs/operators';
-
-import { Action } from '@ngrx/store';
 import { Actions, Effect, ofType } from '@ngrx/effects';
-import * as bookmarkActions from './bookmark.action';
-import { BookmarkService } from '../bookmark.service';
+import { Action } from '@ngrx/store';
+import { Observable, of } from 'rxjs';
+import { catchError, map, mergeMap, switchMap } from 'rxjs/operators';
 import { Bookmark } from '../bookmark.interface';
+import { BookmarkService } from '../bookmark.service';
+import * as bookmarkActions from './bookmark.action';
+
+
 
 @Injectable()
 export class BookmarkEffects {
