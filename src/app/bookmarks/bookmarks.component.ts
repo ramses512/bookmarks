@@ -3,7 +3,7 @@ import { MatDialog } from '@angular/material/dialog';
 import { select, Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
 import { AddDialogComponent } from './add-dialog/add-dialog.component';
-import { Bookmark } from './bookmark.interface';
+import { Bookmark, BookmarkTransform } from './bookmark.interface';
 import * as bookmarkActions from './store/bookmark.action';
 import { getBookmarks } from './store/bookmark.selectors';
 import { MatTableDataSource } from '@angular/material/table';
@@ -16,8 +16,8 @@ import { MatTableDataSource } from '@angular/material/table';
 export class BookmarksComponent implements OnInit {
   bookmarks$: Observable<Bookmark[]>;
   displayedColumns: string[];
-  dataSource: any = [];
-  reducedGroups = [];
+  dataSource = new MatTableDataSource<BookmarkTransform>();
+  reducedGroups: BookmarkTransform[] = [];
   initialData: Bookmark[];
 
   constructor(private store: Store, public dialog: MatDialog) {}
@@ -73,7 +73,7 @@ export class BookmarksComponent implements OnInit {
    * @param [reducedGroups]
    * @returns Array
    */
-  private groupBy(column: string, data: any[], reducedGroups?: any[]): [] {
+  private groupBy(column: string, data: Bookmark[], reducedGroups?: BookmarkTransform[]): BookmarkTransform[] {
     const collapsedGroups = reducedGroups;
     const groups = data.reduce(this.customReducer(column, collapsedGroups), {});
     const groupArray = Object.keys(groups).map((key) => groups[key]);
@@ -91,7 +91,7 @@ export class BookmarksComponent implements OnInit {
    * @param [collapsedGroups]
    * @returns reducer
    */
-  private customReducer(column: string, collapsedGroups?: any[]): any {
+  private customReducer(column: string, collapsedGroups?: BookmarkTransform[]): any {
     return (accumulator, currentValue) => {
       const currentGroup = currentValue[column];
       if (!accumulator[currentGroup]) {
