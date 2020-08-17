@@ -24,4 +24,4 @@ npm start
 <p align="center"><p align="center"> When you click on add float button you can add new bookmark</p><a href="https://ibb.co/9NZzZJc"> <img width="600" src="https://i.ibb.co/CzPNPqm/add.png" alt="add" border="0"></a></p>
 <p align="center"><p align="center"> When you click on edit button you can add edit bookmark</p><a href="https://ibb.co/2d3w8Dy"> <img width="600" src="https://i.ibb.co/Xtx9yhb/edit.png" alt="edit" border="0"></a></p>
 <p align="center"><p>You have form validation with messages<p></p><a href="https://ibb.co/F4WyYPp"> <img width="600" src="https://i.ibb.co/9Hv14MP/Form-validation.png" alt="Form-validation" border="0"></a></p>
-<p align="center"><p align="center"> When you click on remove button you can add delete bookmark</p><a href="https://ibb.co/DpQ7kC8"> <img width="600" src="https://i.ibb.co/ws4KCWw/remove-message.png" alt="remove-message" border="0"></a></p>
+<p align="center"><p align="center"> When you click on remove button you can delete bookmark</p><a href="https://ibb.co/DpQ7kC8"> <img width="600" src="https://i.ibb.co/ws4KCWw/remove-message.png" alt="remove-message" border="0"></a></p>
